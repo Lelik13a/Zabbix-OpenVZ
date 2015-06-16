@@ -1,5 +1,4 @@
-Zabbix-OpenVZ
-=============
+# Zabbix-OpenVZ
 
 OpenVZ node monitoring through Zabbix.
 
@@ -7,8 +6,7 @@ OpenVZ containers monitoring through Zabbix.
 
 Template "Template OpenVZ Node" finds all containers, creates new hosts and apply template "Template OpenVZ CT" on them.
 
-Dependencies
-============
+# Dependencies
 perl, sudo, zabbix-agent.
 
 Installation
