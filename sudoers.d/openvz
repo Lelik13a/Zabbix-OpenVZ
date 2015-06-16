@@ -1,0 +1,8 @@
+#zabbix
+Cmnd_Alias MON_OVZ_HN = /usr/sbin/vzmemcheck, /usr/sbin/vzmemcheck -A, /usr/sbin/vzlist *, /usr/sbin/vzlist -a, /usr/sbin/vzquota stat *, /etc/zabbix/vzdiscover.sh
+Cmnd_Alias MON_OVZ_UBC = /bin/cat /proc/bc/*/resources
+Defaults:zabbix !requiretty
+Defaults:zabbix !syslog
+
+zabbix ALL = NOPASSWD: MON_OVZ_HN, MON_OVZ_UBC
+
