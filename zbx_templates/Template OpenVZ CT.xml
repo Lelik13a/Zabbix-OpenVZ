@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-06-16T05:09:20Z</date>
+    <date>2015-07-27T07:17:47Z</date>
     <groups>
         <group>
             <name>OpenVZ</name>
@@ -891,7 +891,7 @@
         </trigger>
         <trigger>
             <expression>{Template OpenVZ CT:openvz.ct.useddisk_s[{HOST.HOST}].last()} / {Template OpenVZ CT:openvz.ct.limdisk_s[{HOST.HOST}].last()} &gt; {$DISK_WARN}/100</expression>
-            <name>Disk used space is more than {$DISK_WARN}%</name>
+            <name>Disk used space is more than {$DISK_WARN}% ({ITEM.VALUE1} / {ITEM.VALUE2})</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
