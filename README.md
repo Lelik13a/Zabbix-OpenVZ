@@ -13,7 +13,7 @@ Installation
 1. copy vzdiscover.pl, ubcfault.sh and vzlist.sh to /etc/zabbix/
 2. copy zabbix_agentd.d/openvz.conf to /etc/zabbix/zabbix_agentd.d/
 3. copy sudoers.d/zabbix to /etc/sudoers.d/
-4. chmod 440 /etc/sudoers.d/zabbix
+4. chown root:root /etc/sudoers.d/zabbix ; chmod 440 /etc/sudoers.d/zabbix
 5. chmod 755 /etc/zabbix/vzdiscover.pl /etc/zabbix/ubcfault.sh /etc/zabbix/vzlist.sh
 6. restart zabbix-agent daemon.
 7. import "zbx_templates/Template OpenVZ CT.xml" and "zbx_templates/Template OpenVZ Node.xml" into your templates.
