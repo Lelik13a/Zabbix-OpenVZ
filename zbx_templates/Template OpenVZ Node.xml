@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-09-24T08:18:08Z</date>
+    <date>2015-07-08T03:08:47Z</date>
     <groups>
         <group>
             <name>OpenVZ CT</name>
@@ -754,8 +754,8 @@ Script /etc/zabbix/vzdiscover.sh</description>
                     <graph_prototypes/>
                     <host_prototypes>
                         <host_prototype>
-                            <host>{#VENAME}.{#CTID}</host>
-                            <name>{#VENAME} / {#CTHOST}</name>
+                            <host>{#CTID}</host>
+                            <name>{#CTHOST}</name>
                             <status>0</status>
                             <group_links>
                                 <group_link>
