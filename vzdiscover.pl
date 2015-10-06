@@ -11,7 +11,7 @@ my $VEname = `hostname`;
 #cut end string
 $VEname = substr($VEname, 0, -1);
 
-my $vzresult = `/usr/sbin/vzlist -a -o veid,hostname,status,laverage -H`;
+my $vzresult = `/usr/sbin/vzlist -a -o veid,hostname,status,laverage -H 2>/dev/null`;
 
 my @lines = split /\n/, $vzresult;
 

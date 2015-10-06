@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-08-10T02:00:09Z</date>
+    <date>2015-10-06T06:27:54Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template OpenVZ Node</template>
-            <name>Template OpenVZ Node</name>
+            <template>Template OpenVZ Node without discovery</template>
+            <name>Template OpenVZ Node without discovery</name>
             <description/>
             <groups>
                 <group>
@@ -729,7 +729,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[6].last(0)}&gt;{$MEM_WARN}</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[6].last(0)}&gt;{$MEM_WARN}</expression>
             <name>High allocated memory utilization by containers (over {$MEM_WARN})</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>0</status>
@@ -739,7 +739,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[1].last(0)} &gt; {$WARN}</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[1].last(0)} &gt; {$WARN}</expression>
             <name>High low memory utilization by containers (over {$WARN})</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>0</status>
@@ -749,7 +749,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[4].last(0)}&gt; {$WARN}</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[4].last(0)}&gt; {$WARN}</expression>
             <name>High Memory + swap utilization by containers (over {$WARN})</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>0</status>
@@ -759,7 +759,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[3].last(0)} &gt; {$WARN}</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[3].last(0)} &gt; {$WARN}</expression>
             <name>High RAM utilization by containers (over {$WARN})</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>0</status>
@@ -769,7 +769,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[2].last(0)}&gt;100</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[2].last(0)}&gt;100</expression>
             <name>Low memory is overcommitted for containers on server {HOSTNAME}</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>1</status>
@@ -779,7 +779,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[5].last(0)}&gt;100</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[5].last(0)}&gt;100</expression>
             <name>Memory + swap is overcommitted for containers on server {HOSTNAME}</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>1</status>
@@ -789,7 +789,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[7].last(0)}&gt;80</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[7].last(0)}&gt;80</expression>
             <name>Memory allocation is overcommitted for containers on server {HOSTNAME}</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>1</status>
@@ -799,7 +799,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ Node:openvz.vzmemcheck.putil[8].last(0)}&gt;180</expression>
+            <expression>{Template OpenVZ Node without discovery:openvz.vzmemcheck.putil[8].last(0)}&gt;180</expression>
             <name>Overcommitment of memory allocation limit by containers is too high on server {HOSTNAME}</name>
             <url>http://wiki.openvz.org/User_Guide/Managing_Resources#Monitoring_Memory_Consumption</url>
             <status>1</status>
