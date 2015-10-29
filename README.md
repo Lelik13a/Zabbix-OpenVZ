@@ -20,6 +20,14 @@ Installation
 8. apply template "Template OpenVZ Node" to OpenVZ hardware node (otherwise known as host system).
 9. enjoy.
 
+Install extend check inside CT
+============
+1. copy ctextcheckdiscover.pl ctextcheck.sh to /etc/zabbix/
+2. create directory /etc/zabbix inside CT and copy ctextcheck/ct_check.sh there.
+3. edit ct_check.sh to realise custom checks.
+4. enable discovery rule "discover container external checks" in CT nodes.
+5. enjoy.
+
 
 PS
 ===========

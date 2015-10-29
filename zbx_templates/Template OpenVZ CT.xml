@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-08-10T02:52:24Z</date>
+    <date>2015-10-29T08:17:08Z</date>
     <groups>
         <group>
             <name>OpenVZ</name>
@@ -29,6 +29,9 @@
                 </application>
                 <application>
                     <name>Disk</name>
+                </application>
+                <application>
+                    <name>External check</name>
                 </application>
                 <application>
                     <name>Main</name>
@@ -859,7 +862,99 @@
                     <logtimefmt/>
                 </item>
             </items>
-            <discovery_rules/>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Discover container external checks</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>openvz.ctextcheck.discovery[{HOST.HOST}]</key>
+                    <delay>3600</delay>
+                    <status>1</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description>/etc/zabbix/ctextcheckdiscover.pl</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#DESCR}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>openvz.ct.extcheck[{#CTID},{#KEY}]</key>
+                            <delay>300</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>External check</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template OpenVZ CT:openvz.ct.extcheck[{#CTID},{#KEY}].str(OK)}=0</expression>
+                            <name>{#DESCR} fail</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+            </discovery_rules>
             <macros>
                 <macro>
                     <macro>{$DISK_I_WARN}</macro>
@@ -867,6 +962,10 @@
                 </macro>
                 <macro>
                     <macro>{$DISK_WARN}</macro>
+                    <value>90</value>
+                </macro>
+                <macro>
+                    <macro>{$PROC_CT_WARN}</macro>
                     <value>90</value>
                 </macro>
                 <macro>
@@ -900,8 +999,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ CT:openvz.ct.usedproc[{HOST.HOST}].last()} &gt; {$PROC_WARN}</expression>
-            <name>Too many processes (over {$PROC_WARN})</name>
+            <expression>{Template OpenVZ CT:openvz.ct.usedproc[{HOST.HOST}].last()} &gt; {$PROC_CT_WARN}</expression>
+            <name>Too many processes ({ITEM.VALUE1} / {$PROC_CT_WARN})</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
