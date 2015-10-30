@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-10-29T08:17:08Z</date>
+    <date>2015-10-30T05:47:12Z</date>
     <groups>
         <group>
             <name>OpenVZ</name>
@@ -999,6 +999,26 @@
             <dependencies/>
         </trigger>
         <trigger>
+            <expression>{Template OpenVZ CT:openvz.ct.failmem[{HOST.HOST}].last()}&gt;0 and {Template OpenVZ CT:openvz.ct.failmem[{HOST.HOST}].delta(86400)} &lt;&gt; 0</expression>
+            <name>Memory allocations fault counter changed ({ITEM.VALUE1})</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template OpenVZ CT:openvz.ct.failswap[{HOST.HOST}].last()}&gt;0 and {Template OpenVZ CT:openvz.ct.failswap[{HOST.HOST}].delta(86400)} &lt;&gt; 0</expression>
+            <name>Swap allocations fault counter changed ({ITEM.VALUE1})</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
             <expression>{Template OpenVZ CT:openvz.ct.usedproc[{HOST.HOST}].last()} &gt; {$PROC_CT_WARN}</expression>
             <name>Too many processes ({ITEM.VALUE1} / {$PROC_CT_WARN})</name>
             <url/>
@@ -1009,8 +1029,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template OpenVZ CT:openvz.ct.ubcfault[{HOST.HOST}].change()} = 1</expression>
-            <name>UBC fault counter changed</name>
+            <expression>{Template OpenVZ CT:openvz.ct.ubcfault[{HOST.HOST}].last()}&gt;0 and {Template OpenVZ CT:openvz.ct.ubcfault[{HOST.HOST}].delta(86400)} &lt;&gt; 0</expression>
+            <name>UBC fault counter changed ({ITEM.VALUE1})</name>
             <url/>
             <status>0</status>
             <priority>2</priority>

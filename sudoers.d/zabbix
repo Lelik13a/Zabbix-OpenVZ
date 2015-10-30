@@ -1,6 +1,6 @@
 #zabbix
 Cmnd_Alias MON_OVZ_HN = /usr/sbin/vzmemcheck, /usr/sbin/vzmemcheck -A, /usr/sbin/vzlist *, /usr/sbin/vzlist -a, /usr/sbin/vzquota stat *, /etc/zabbix/vzdiscover.pl, /etc/zabbix/ctextcheckdiscover.pl *, /usr/sbin/vzctl exec2 * 
-Cmnd_Alias MON_OVZ_UBC = /bin/cat /proc/bc/*/resources
+Cmnd_Alias MON_OVZ_UBC = /bin/cat /proc/bc/*/resources, /etc/zabbix/ubcfault.sh *
 Defaults:zabbix !requiretty
 Defaults:zabbix !syslog
 
