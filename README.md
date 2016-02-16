@@ -21,7 +21,7 @@ Installation
 9. enjoy.
 
 
-You can tune macros (like {$PROC_CT_WARN}) in template Template OpenVZ CT,
+You can tune macros (like {$PROC_CT_WARN}) in template "Template OpenVZ CT",
  or set macros  to parent host (hardware node), it will be inherited to auto-discovered CT host. This is zabbix restriction.
 
 Install extend check inside CT
