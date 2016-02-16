@@ -20,6 +20,10 @@ Installation
 8. apply template "Template OpenVZ Node" to OpenVZ hardware node (otherwise known as host system).
 9. enjoy.
 
+
+You can tune macros (like {$PROC_CT_WARN}) in template Template OpenVZ CT,
+ or set macros  to parent host (hardware node), it will be inherited to auto-discovered CT host. This is zabbix restriction.
+
 Install extend check inside CT
 ============
 1. copy ctextcheckdiscover.pl ctextcheck.sh to /etc/zabbix/
