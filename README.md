@@ -16,13 +16,16 @@ Installation
 4. chown root:root /etc/sudoers.d/zabbix ; chmod 440 /etc/sudoers.d/zabbix
 5. chmod 755 /etc/zabbix/vzdiscover.pl /etc/zabbix/ubcfault.sh /etc/zabbix/vzlist.sh
 6. restart zabbix-agent daemon.
-7. import "zbx_templates/Template OpenVZ CT.xml" and "zbx_templates/Template OpenVZ Node.xml" into your templates.
+7. import "zbx_templates/Template OpenVZ CT.xml" (or Template OpenVZ CT (v 3.x).xml) and "zbx_templates/Template OpenVZ Node.xml" into your templates.
 8. apply template "Template OpenVZ Node" to OpenVZ hardware node (otherwise known as host system).
 9. enjoy.
 
 
-You can tune macros (like {$PROC_CT_WARN}) in template Template OpenVZ CT,
+You can tune macros (like {$PROC_CT_WARN}) in template "Template OpenVZ CT",
  or set macros  to parent host (hardware node), it will be inherited to auto-discovered CT host. This is zabbix restriction.
+
+
+Template Template OpenVZ CT (v 3.x).xml - new version with changed trigger "too many processes" to prevent flapps.
 
 Install extend check inside CT
 ============
