@@ -748,7 +748,7 @@
                     </filter>
                     <lifetime>30</lifetime>
                     <description>Discover  OpenVZ container/&#13;
-Script /etc/zabbix/vzdiscover.sh</description>
+Script /etc/zabbix/vzdiscover.pl</description>
                     <item_prototypes/>
                     <trigger_prototypes/>
                     <graph_prototypes/>
